@@ -3,7 +3,7 @@ apply plugin: 'java'
 group = 'org.cfmlprojects'
 description = 'JavaShim Gradle build script'
 archivesBaseName = 'javashim'
-version = '1.0.0'
+version = '1.0.1'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -24,12 +24,10 @@ test {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
-    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: "1.0.3"
-    testCompile(
-            'org.junit.jupiter:junit-jupiter-params:5.1.0'
-    )
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: "1.2.0"
+    testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
 }
 repositories {
     jcenter()

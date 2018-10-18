@@ -28,6 +28,9 @@ public class JavaShimClassLoader extends ClassLoader {
                 return definedClass;
             }
             try (InputStream is = JavaShimClassLoader.class.getClassLoader().getResourceAsStream(classFileName)) {
+                if(is == null){
+                    getParent().loadClass(name); // this will rethrow a CNFE
+                }
                 byte[] buf = new byte[10000];
                 int len = is.read(buf);
                 definedClass = defineClass(name, buf, 0, len);
