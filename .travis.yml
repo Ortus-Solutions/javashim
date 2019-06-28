@@ -10,6 +10,8 @@ install:
 
 script:
 - ./gradlew build
+- cd gradle/libs
+- ls
 
 deploy:
   # Upload binaries
