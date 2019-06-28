@@ -7,7 +7,7 @@ version = '1.0.1'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-task wrapper(type: Wrapper) { gradleVersion = '4.7' }
+task wrapper(type: Wrapper) { gradleVersion = '5.4.1' }
 
 test {
     // Enable JUnit 5 (Gradle 4.6+).
