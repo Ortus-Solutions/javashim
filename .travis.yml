@@ -10,7 +10,7 @@ install:
 
 script:
 - ./gradlew build
-- cd gradle
+- cd build
 - ls
 
 deploy:
