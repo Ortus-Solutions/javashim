@@ -4,10 +4,6 @@ branches:
     only:
         - master
 
-install:
-- ./gradle/jvm-setup.sh
-- java -version
-
 script:
 - ./gradlew build
 - cd build
