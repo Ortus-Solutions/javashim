@@ -4,9 +4,6 @@ script:
 - ./gradlew
 - ./gradlew build
 
-jdk:
-  - oraclejdk8
-
 deploy:
   # Upload binaries
   - provider: s3
