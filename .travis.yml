@@ -1,5 +1,8 @@
 language: java
 
+before_install:
+- ./gradle/jvm-setup.sh
+
 script:
 - ./gradlew
 - ./gradlew build
