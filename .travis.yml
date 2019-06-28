@@ -3,6 +3,9 @@ language: java
 script:
 - ./gradlew build
 
+jdk:
+  - oraclejdk8
+
 deploy:
   # Upload binaries
   - provider: s3
