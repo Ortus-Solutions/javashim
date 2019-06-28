@@ -9,6 +9,14 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 task wrapper(type: Wrapper) { gradleVersion = '4.7' }
 
+tasks.withType(JavaCompile) {
+    options.bootstrapClasspath = fileTree(include: ['**/jce.jar','**/rt.jar'], dir: "${System.properties['java.home']}/")
+    options.encoding = 'UTF-8'
+    options.compilerArgs += '-Xlint:unchecked'
+    options.compilerArgs += '-Xlint:deprecation'
+}
+
+
 wrapper{
     distributionType = Wrapper.DistributionType.ALL
     doLast{
