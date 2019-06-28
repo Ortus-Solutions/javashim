@@ -2,9 +2,9 @@ language: java
 
 before_install:
 - ./gradle/jvm-setup.sh
+- java -version
 
 script:
-- ./gradlew
 - ./gradlew build
 
 deploy:
