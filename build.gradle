@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-group = 'org.cfmlprojects'
+group = 'cfmlprojects'
 description = 'JavaShim Gradle build script'
 archivesBaseName = 'javashim'
 version = '1.0.1'
@@ -8,6 +8,19 @@ version = '1.0.1'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 task wrapper(type: Wrapper) { gradleVersion = '4.7' }
+
+wrapper{
+    distributionType = Wrapper.DistributionType.ALL
+    doLast{
+        // customise gradlew for our JVM auto-download script
+        def javaRelease = System.getenv( 'JVM_RELEASE' ) ?: 'latest'
+        def javaMajorVersion = System.getenv( 'JVM_MAJOR_VERSION' ) ?: 8
+        def javaDir = System.getenv( 'JVM_HOME' ) ?: "gradle/jvm/${javaMajorVersion}/latest"
+        def envVars = "\nexport JVM_MAJOR_VERSION=${ javaMajorVersion }\nexport JVM_DIR=\"${ javaDir }\"\nexport JVM_RELEASE=${ javaRelease }\nexport GRADLE_USER_HOME=\"\${HOME}/.gradle\"\n"
+        envVars += ". \"\${APP_HOME}/gradle/jvm-setup.sh\"\n"
+        scriptFile.text = new StringBuilder( scriptFile.text ).insert( scriptFile.text.indexOf( 'APP_NAME' ) - 1, envVars )
+    }
+}
 
 test {
     // Enable JUnit 5 (Gradle 4.6+).
