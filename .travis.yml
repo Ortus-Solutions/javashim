@@ -6,9 +6,7 @@ branches:
 
 script:
 - ./gradlew
-- cd build
-- cd libs
-- ls
+
 
 deploy:
   # Upload binaries
