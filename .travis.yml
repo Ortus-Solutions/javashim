@@ -5,7 +5,7 @@ branches:
         - master
 
 script:
-- ./gradlew build
+- ./gradlew
 - cd build
 - cd libs
 - ls
